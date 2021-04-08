@@ -21,10 +21,11 @@ const app = (() => {
 		);
 		table1.append(
 			`<tr> 
+					  
 					  <td>${wd.weather.id}</td>
-                      <td>${wd.weather.main}</td>
-                      <td>${wd.weather.description}</td>
-					 
+					  <td>${wd.weather.main}</td>
+					  <td>${wd.weather.description}</td>
+					  
                 </tr>`
 		);
 		
