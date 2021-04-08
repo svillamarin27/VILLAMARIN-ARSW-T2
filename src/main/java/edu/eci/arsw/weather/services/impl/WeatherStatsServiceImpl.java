@@ -19,17 +19,19 @@ public class WeatherStatsServiceImpl implements WeatherStatsService {
         JSONObject object = weatherService.getWeatherByCity(name);
         Coord coord = formatObject("coord",object,Coord.class);
         Clouds clouds = formatObject("clouds",object,Clouds.class);
+        Wind wind = formatObject("wind",object,Wind.class);
         MainStats mainStats = formatObject("main",object,MainStats.class);
         JSONObject objectWeather = object.getJSONArray("weather").getJSONObject(0);
         Weather weather = mapWeather(objectWeather);
         cityWeather.setCoord(coord);
         cityWeather.setWeather(weather);
         cityWeather.setClouds(clouds);
+        cityWeather.setWind(wind);
         cityWeather.setName(object.getString("name"));
         cityWeather.setTimezone(object.getInt("timezone"));
         cityWeather.setCod(object.getInt("cod"));
         cityWeather.setVisibility(object.getInt("visibility"));
-        return null;
+        return cityWeather;
     }
 
     private Weather mapWeather(JSONObject objectWeater) {

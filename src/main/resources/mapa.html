@@ -1,17 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Weather Stats</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="js/apiclient.js"></script>
-        <script src="js/app.js"></script>
-        <link rel="stylesheet"
-              href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css"/>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <style>
     html, body{
@@ -37,7 +26,9 @@
   var gettingData = false;
   var openWeatherMapKey = "f70fd1eb9fb8c63c6a242766f8f90670"
   var geocoder = new google.maps.Geocoder();
-    
+
+
+
   function initialize() {
     var mapOptions = {
       zoom: 7,
@@ -163,7 +154,7 @@
       map.data.remove(feature);
     });
   };
-    
+
   function codeAddress(addr, map) {
     geocoder.geocode( { 'address': addr}, function(results, status) {
       if (status == 'OK') {
@@ -177,64 +168,15 @@
       }
     });
   }
-    
+
   google.maps.event.addDomListener(window, 'load', initialize);
-    
-  
+
+
 </script>
 </head>
-    <body onload="app.init()">
-	<h2 align="center">Busqueda de Informacion Meteorologica</h2>
-	<div class="container register mt-4">
-       
-                <form>
-                    <div>
-                        <input id="nombre" placeholder="Nombre del pais o ciudad">
-                        <button type="button" class="btn btn-primary ml-2 col-2"
-                                onclick="app.getWeatherByCity(nombre.value)">Buscar
-                        </button>
-                    </div>
-                </form>
-           
-        <div class="container register mt-4">
-            <div class="row">
-                <div class="col-sm">
-                    <h2 style="font-size:16px">informacion basica</h2>
-                    <table id="cityinfo" class="table table-bordered table-light table-striped">
-                        <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Timezone</th>
-                            <th>coord long</th>
-                            <th>coord lat</th>
-                            <th>Visibility</th>
-                            <th>all clouds</th>
-                            <th>cod</th>
-                            <th>speed wind</th>
-                            <th>deg wind</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-                <div class="col-sm">
-                    <h2 style="font-size:16px">Clima</h2>
-                    <table id="clima" class="table table-bordered table-light table-striped">
-                        <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>main</th>
-                            <th>description</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-        </div>
+<body>
 
-    </div>
-    </div>
-    <div id="map-canvas"></div>
-     
-    </body>
+<div id="map-canvas"></div>
+
+</body>
 </html>
