@@ -183,15 +183,16 @@
   
 </script>
 </head>
-    <body onload="app.init()">
-	<h2 align="center">Busqueda de Informacion Meteorologica</h2>
+    <body onload="app.init()">    
+	<h2 align="center">OpenWeather Information</h2>
+	<div id="map-canvas"></div>
 	<div class="container register mt-4">
        
                 <form>
                     <div>
-                        <input id="nombre" placeholder="Nombre del pais o ciudad">
+                        <input id="nombre" placeholder="City or Country">
                         <button type="button" class="btn btn-primary ml-2 col-2"
-                                onclick="app.getWeatherByCity(nombre.value)">Buscar
+                                onclick="app.getWeatherByCity(nombre.value)">Search
                         </button>
                     </div>
                 </form>
@@ -199,32 +200,33 @@
         <div class="container register mt-4">
             <div class="row">
                 <div class="col-sm">
-                    <h2 style="font-size:16px">informacion basica</h2>
+                    <h2 style="font-size:16px">basic information</h2>
                     <table id="cityinfo" class="table table-bordered table-light table-striped">
                         <thead>
                         <tr>
-                            <th>Nombre</th>
+                            <th>Place</th>
                             <th>Timezone</th>
                             <th>coord long</th>
                             <th>coord lat</th>
                             <th>Visibility</th>
-                            <th>all clouds</th>
-                            <th>cod</th>
-                            <th>speed wind</th>
-                            <th>deg wind</th>
+                            <th>All clouds</th>
+                            <th>Cod</th>                            
+                            <th>Speed wind</th>
+                            <th>Deg wind</th>
+                            
                         </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
                 </div>
                 <div class="col-sm">
-                    <h2 style="font-size:16px">Clima</h2>
+                    <h2 style="font-size:16px">About weather</h2>
                     <table id="clima" class="table table-bordered table-light table-striped">
                         <thead>
                         <tr>
-                            <th>id</th>
-                            <th>main</th>
-                            <th>description</th>
+                            <th>Id</th>
+                            <th>Main</th>
+                            <th>Description</th>
                         </tr>
                         </thead>
                         <tbody></tbody>
@@ -233,8 +235,6 @@
         </div>
 
     </div>
-    </div>
-    <div id="map-canvas"></div>
-     
+    </div>       
     </body>
 </html>

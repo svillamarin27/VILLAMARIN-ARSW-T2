@@ -1,0 +1,8 @@
+edu.eci.arsw.weather
+edu.eci.arsw.weather.Controllers
+edu.eci.arsw.weather.httpconnectionservices
+edu.eci.arsw.weather.httpconnectionservices.impl
+edu.eci.arsw.weather.model
+edu.eci.arsw.weather.services
+edu.eci.arsw.weather.services.impl
+openWeatherAPITest
