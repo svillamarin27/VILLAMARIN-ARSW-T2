@@ -3,6 +3,7 @@ const app = (() => {
 		let table1 = $("#clima > tbody");
 		let table0 = $("#cityinfo > tbody");
 		let wd = weather.data;
+		enviarlongitud(wd.coord);
 		table0.empty();
 		table1.empty();
 		table0.append(
@@ -26,13 +27,34 @@ const app = (() => {
 					 
                 </tr>`
 		);
-
-
+		
+		
 	}
+	const init = () =>{
+        initMap();
+    }
+    var initMap = () => {map = new google.maps.Map(document.getElementById("map-canvas"), {zoom: 4,center: {lat: 35.717, lng: 139.731},});
+    }
+    function enviarlongitud(m) {
+        markers = [];
+        bounds = new google.maps.LatLngBounds();
+        var position = new google.maps.LatLng(m.lat, m.lon);
+        markers.push(
+            new google.maps.Marker({
+                position: position,
+                map: map,
+                animation: google.maps.Animation.DROP
+            })
+        );
+        bounds.extend(position);
+        map.fitBounds(bounds);
+        map.setZoom(4);
+    }
 	const getWeatherByCity = (city) => {
 		apiclient.getWeatherByCity(city, mapeo);
 	}
 	return {
-		getWeatherByCity: getWeatherByCity
+		getWeatherByCity: getWeatherByCity,
+		init:init
 	}
 })();
